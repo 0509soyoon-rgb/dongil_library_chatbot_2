@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>동일여고 AI 도서관</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="badge">원본 소장도서 기반 · 없는 책 추천 금지</div>
+    <h1>📚 동일여고 AI 도서관</h1>
+    <p>책 제목 검색, 진로 추천, 오늘의 책, 독서유형 테스트까지 한 번에.</p>
+    <div id="meta" class="meta"></div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid features">
+      <button class="feature" id="todayBtn"><b>📖 오늘의 책</b><span>매일 바뀌는 실제 소장도서</span></button>
+      <button class="feature" id="typeBtn"><b>🧠 독서 유형 테스트</b><span>16가지 Book Type</span></button>
+      <button class="feature" id="randomBtn"><b>🎲 운명의 책 뽑기</b><span>뜻밖의 소장도서 발견</span></button>
+      <button class="feature" data-career="의학/보건"><b>🩺 의학·보건</b><span>의대·간호·약학</span></button>
+      <button class="feature" data-career="공학/AI"><b>💻 공학·AI</b><span>개발자·컴공·데이터</span></button>
+      <button class="feature" data-career="교육/교사"><b>🏫 교육·교사</b><span>사범대·교육학</span></button>
+    </section>
+
+    <section class="panel searchPanel">
+      <h2>🔍 책 검색 / 진로 추천</h2>
+      <p class="hint">예: <button class="chip">소나기</button> <button class="chip">해리포터</button> <button class="chip">간호학과 책 추천</button> <button class="chip">고1이 읽기 쉬운 AI 책</button></p>
+      <div class="searchbar">
+        <input id="searchInput" placeholder="책 제목, 저자, 진로, 학과를 입력하세요" />
+        <button id="searchBtn">검색</button>
+      </div>
+      <div id="notice" class="notice"></div>
+    </section>
+
+    <section id="results" class="results"></section>
+
+    <section id="typeTest" class="panel hidden">
+      <h2>🧠 독서 유형 테스트</h2>
+      <p class="hint">각 문항에서 더 가까운 쪽을 고르세요. 결과는 16가지 독서유형으로 나옵니다.</p>
+      <div id="questions"></div>
+      <button id="calcType" class="primary">내 독서유형 보기</button>
+      <div id="typeResult"></div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modalBox">
+      <button id="closeModal" class="close">×</button>
+      <div id="detail"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>※ 제목·저자·출판사·청구기호는 업로드된 동일여고 소장도서 원본 기준입니다. 장르·태그·난이도·추천 이유는 자동 보조 분류입니다.</p>
+  </footer>
+  <script src="/static/app.js"></script>
+</body>
+</html>
